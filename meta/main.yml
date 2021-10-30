@@ -1,4 +1,4 @@
-galaxy-info:
+galaxy_info:
   author: James Lavender
   description: A set of preflight tasks for any Linode Instance.
   license: GPLv3
