@@ -1,0 +1,25 @@
+---
+- name: add_user | Add admin user
+  user:
+    name: "{{ admin_user }}"
+    group: "{{ admin_group }}"
+    state: present
+    create_home: yes
+  become: yes
+
+- name: add_user | Ensure admin user ssh directory exists
+  file:
+    path: "/home/{{ admin_user }}/.ssh/"
+    state: directory
+    owner: "{{ admin_user }}"
+    group: "{{ admin_group }}"
+    mode: 0700
+  become: yes
+
+- name: add_user | Add SSH keys to admin user
+  authorized_key:
+    user: "{{ admin_user }}"
+    state: "{{ item.state }}"
+    key: "{{ item.key }}"
+  with_items: "{{ authorized_keys }}"
+  become: yes

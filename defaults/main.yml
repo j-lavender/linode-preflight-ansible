@@ -1,0 +1,15 @@
+---
+# Preflight
+preflight__timezone: UTC
+
+# Firewall
+firewall__ssh_rule: limit
+
+# User
+admin_user: "admin"
+admin_group: "admin"
+
+# SSH Config
+ssh__port: 8822
+ssh__password_authentication: "no"
+ssh__address_family: "inet"
