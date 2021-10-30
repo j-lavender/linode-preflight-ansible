@@ -1,4 +1,18 @@
 ---
+- name: add_user | Add admin group
+  group:
+    name: "{{ admin_group }}"
+    state: present
+
+- name: add_user | Allow 'admin' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%admin'
+    line: '%admin ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+  become: yes
+
 - name: add_user | Add admin user
   user:
     name: "{{ admin_user }}"
@@ -19,7 +33,7 @@
 - name: add_user | Add SSH keys to admin user
   authorized_key:
     user: "{{ admin_user }}"
-    state: "{{ item.state }}"
+    state: present
     key: "{{ item.key }}"
-  with_items: "{{ authorized_keys }}"
+  with_items: "{{ ssh_keys }}"
   become: yes
