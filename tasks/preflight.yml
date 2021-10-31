@@ -1,23 +1,23 @@
 ---
-- name: preflight | install ntp
+- name: linode_preflight | preflight | install ntp
   apt:
     name: ntp
     state: present
   become: yes
 
-- name: preflight | ensure ntp is running on boot
+- name: linode_preflight | preflight | ensure ntp is running on boot
   service:
     name: ntp
     state: started
     enabled: yes
   become: yes
 
-- name: preflight | Set Timezone
+- name: linode_preflight | preflight | Set Timezone
   timezone:
     name: "{{ preflight__timezone }}"
   become: yes
 
-- name: preflight | copy 10periodic unattended upgrades
+- name: linode_preflight | preflight | copy 10periodic unattended upgrades
   template:
     src: "etc/apt/apt.conf.d/10periodic.j2"
     dest: "/etc/apt/apt.conf.d/10periodic"
