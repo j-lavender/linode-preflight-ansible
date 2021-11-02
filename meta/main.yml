@@ -1,6 +1,6 @@
 galaxy_info:
   author: James Lavender
-  description: A set of preflight tasks for any Linode Instance.
+  description: A set of preflight tasks for Ubuntu 20 Linode Instances.
   license: GPLv3
   min_ansible_version: 1.2
   galaxy-tags:
