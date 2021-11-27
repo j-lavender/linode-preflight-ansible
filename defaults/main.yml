@@ -10,7 +10,7 @@ user: "admin"
 group: "admin"
 
 # SSH Config
-ssh__port: 8822
+ssh__port: 4554
 ssh__password_authentication: "no"
 ssh__address_family: "inet"
 
