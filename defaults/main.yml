@@ -15,3 +15,6 @@ ssh__password_authentication: "no"
 ssh__address_family: "inet"
 
 ssh__keys: []
+# ssh__keys:
+#   - key: ssh-key
+#     state: present
