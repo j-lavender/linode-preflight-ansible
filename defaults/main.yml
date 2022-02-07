@@ -6,8 +6,8 @@ preflight__timezone: UTC
 firewall__ssh_rule: limit
 
 # User
-user: "admin"
-group: "admin"
+user: "ops"
+group: "ops"
 
 # SSH Config
 ssh__port: 4554
